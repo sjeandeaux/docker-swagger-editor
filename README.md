@@ -9,7 +9,20 @@ docker run -d --name swagger-editor -p 8888:8888 sjeandeaux/docker-swagger-edito
 
 ```
 
-## Build
+## Start with your configuration
+
+```Dockerfile
+FROM sjeandeaux/docker-swagger-editor
+COPY defaults.json /swagger/swagger-editor/config/defaults.json
+```
+
+
+Start with bind mount
+
+```sh
+docker run -d --name myConfiguration -v /path/myConfiguration.json:/swagger/swagger-editor/config/defaults.json:ro sjeandeaux/docker-swagger-editor
+```
+
 
 ```sh
 make build
